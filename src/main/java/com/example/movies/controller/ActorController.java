@@ -80,7 +80,7 @@ public class ActorController {
     
     @DeleteMapping("/delete/{id}")
     public String delete(@PathVariable("id") Long id) {
-      Boolean isActorDeleted = actorService.deleteById(id);
+      Boolean isActorDeleted = actorService.deleteActor(id);
 
       if (!isActorDeleted) {
         // ...

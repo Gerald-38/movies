@@ -27,7 +27,7 @@ public class ActorService {
     	return true; 
     }
     
-    public Boolean deleteById(Long id) {
+    public Boolean deleteActor(Long id) {
         boolean isActorInDB;
 
         try {
@@ -36,7 +36,8 @@ public class ActorService {
           if (!isActorInDB) {
             return false;
           }
-
+          
+          actorRepository.deleteActorById(id);
           actorRepository.deleteById(id);
           return true;
         } catch (RuntimeException e) {
