@@ -57,12 +57,8 @@ public class MovieController {
     @GetMapping("/movie")
     public ResponseEntity<Movie> getMovieByTitle(@RequestParam String title) {
         return ResponseEntity.ok(movieService.getByTitle(title));
-    }
-    
-//    @GetMapping("/age")
-//    public ResponseEntity<Movie> getMovieByRestrictionAge(@RequestParam Integer age) {
-//        return ResponseEntity.ok(movieService.getByrestrictionAge(age));
-//    }
+    }  
+
     
     @GetMapping("/age/{restrictionAge}")
     public ResponseEntity<List<Movie>> getMoviesByRestrictionAge(@PathVariable Integer restrictionAge) {

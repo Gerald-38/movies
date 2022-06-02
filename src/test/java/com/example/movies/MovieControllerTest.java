@@ -2,7 +2,7 @@ package com.example.movies;
 
 import java.nio.charset.Charset;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -21,7 +21,7 @@ import com.example.movies.repository.MovieRepository;
 @RunWith(SpringRunner.class) 
 @AutoConfigureMockMvc
 @SpringBootTest
-public class MovieControllerIntegrationTest {
+public class MovieControllerTest {
 
 	 @MockBean
 	    private MovieRepository movieRepository;
@@ -37,7 +37,7 @@ public class MovieControllerIntegrationTest {
 	    public void whenPostRequestToMoviesAndValidMovie_thenCorrectResponse() throws Exception {
 	    	MediaType textPlainUtf8 = new MediaType(MediaType.TEXT_PLAIN, Charset.forName("UTF-8"));
 	        String movie = "{\"title\": \"The Movie\", \"description\" : \"the description\", \"restrictionAge\": 10 }";
-	        mockMvc.perform(MockMvcRequestBuilders.post("/eleves/post")
+	        mockMvc.perform(MockMvcRequestBuilders.post("/movies/post")
 	          .content(movie)
 	          .contentType(MediaType.APPLICATION_JSON_UTF8))
 	          .andExpect(MockMvcResultMatchers.status().isOk())
